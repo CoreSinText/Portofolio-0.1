@@ -1,0 +1,354 @@
+/* <--All Setting---> */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #2b2b2b;
+  overflow-x: hidden;
+}
+
+/* <---External Font */
+/* Pixels */
+@font-face {
+  font-family: pixel;
+  src: url(../asset/font/BACKTO1982.TTF);
+}
+/* cyberpunk */
+@font-face {
+  font-family: "cyber punk";
+  src: url("/asset/font/Cyberpunk-Regular.ttf");
+}
+
+/* <---Root---> */
+:root {
+  --height-nav: 6vh;
+  --height-page-me: 50vh;
+
+  /* Color HEX*/
+  --black-1: #2b2b2b;
+  --yellow-1: #ffe459;
+  --orange-1: #ff4c29;
+  --orange-2: #ff7600;
+  --light-blue-1: #00b8ff;
+  --light-blue-2: #001eff;
+  --light-green-1: #28ffbf;
+  --light-green-2: #00ff9f;
+  --light-purple-1: #bd00ff;
+  --light-purple-2: #d600ff;
+
+  /* Color HSL */
+  --purple-hsl-1: hsl(284, 100%, 50%);
+  --purple-hsl-2: hsl(290, 100%, 50%);
+  --green-hsl-1: hsl(162, 100%, 58%);
+  --green-hsl-2: hsl(157, 100%, 50%);
+  --blue-hsl-1: hsl(197, 100%, 50%);
+  --blue-hsl-2: hsl(233, 100%, 50%);
+  /* Color RGBA */
+  --rgba-black-1: rgba(43, 43, 43, 0.9);
+  --rgba-yellow-1: rgba(255, 228, 89, 0.9);
+  --rgba-orange-1: rgba(255, 76, 41, 0.5);
+  --rgba-orange-2: rgba(255, 118, 0, 1);
+  --rgba-light-blue-1: rgba(0, 184, 255, 0.8);
+  --rgba-light-blue-2: rgba(0, 30, 255, 1);
+  --rgba-light-green-1: rgba(40, 255, 191, 1);
+  --rgba-light-green-2: rgba(0, 255, 159, 1);
+  --rgba-light-purple-1: rgba(189, 0, 255, 0.8);
+  --rgba-light-purple-2: rgba(214, 0, 255, 0.8);
+  /* Font */
+  --acme: "Acme", sans-serif;
+  --lobster: "Lobster", cursive;
+  --pacifito: "Pacifico", cursive;
+  --poppins: "Poppins", sans-serif;
+
+  /* Universal Var */
+  --logo-text-shadow: 0 0 17px yellow;
+}
+
+/* <---ScrollBar---> */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* <---Navbar---> */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: var(--height-nav);
+  background-color: var(--black-1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+/* List Link */
+nav ul {
+  list-style: none;
+  display: flex;
+  width: 30vw;
+  justify-content: space-evenly;
+  transition: all 1s;
+}
+nav ul li {
+  flex-shrink: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  font-family: var(--poppins);
+  font-weight: 600;
+  font-size: medium;
+  color: whitesmoke;
+}
+
+nav ul li a:hover {
+  color: yellow;
+  text-shadow: var(--logo-text-shadow);
+}
+/* Logo */
+.logo {
+  margin: 0vw 0vw 0vw 3vw;
+  font-family: var(--lobster);
+  font-size: x-large;
+  cursor: pointer;
+  animation-name: logo-animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+/* Animation Logo */
+@keyframes logo-animation {
+  0% {
+    color: var(--yellow-1);
+  }
+  10% {
+    color: var(--yellow-1);
+    text-shadow: var(--logo-text-shadow);
+  }
+  20% {
+    color: var(--yellow-1);
+  }
+  30% {
+    color: var(--yellow-1);
+    text-shadow: var(--logo-text-shadow);
+  }
+  40% {
+    color: var(--yellow-1);
+  }
+  50% {
+    color: var(--yellow-1);
+    text-shadow: var(--logo-text-shadow);
+  }
+  60% {
+    color: var(--yellow-1);
+  }
+  70% {
+    color: var(--yellow-1);
+  }
+  80% {
+    color: var(--yellow-1);
+  }
+  90% {
+    color: var(--yellow-1);
+    text-shadow: var(--logo-text-shadow);
+  }
+}
+
+/* Icon Navbar */
+.icon-navbar {
+  display: none;
+  flex-direction: column;
+  height: 4vh;
+  justify-content: space-evenly;
+  width: 15%;
+  align-items: center;
+}
+.bar {
+  display: block;
+  background-color: white;
+  height: 5px;
+  width: 30px;
+  border-radius: 12px;
+  transition: all 1s;
+}
+
+/* <---Responsive Navbar----> */
+/* Heandphone */
+@media screen and (max-width: 540px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  /* Right Bar */
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    right: -50%;
+    top: 0;
+    height: 100vh;
+    width: 40vw;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--rgba-black-1);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+  }
+  nav .list-link.active ul {
+    right: 0;
+  }
+  nav ul li {
+    margin-top: 8vh;
+  }
+  nav ul li a {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  /* Icon Navbar */
+  .icon-navbar {
+    display: flex;
+  }
+
+  .icon-navbar.active .bar:nth-child(1) {
+    transform: translateX(-20px);
+  }
+  .icon-navbar.active .bar:nth-child(2) {
+    transform: translateX(-10px);
+  }
+  .icon-navbar.active .bar {
+    background-color: var(--yellow-1);
+  }
+}
+
+/* <---Me Page----> */
+#me {
+  margin-top: var(--height-nav);
+  display: block;
+  z-index: -10;
+}
+.background-me-page {
+  height: calc(70vh - var(--height-nav));
+  display: flex;
+  background-image: url("../asset/img/me-page.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+  animation-name: background-me-page;
+  animation-duration: 1.5s;
+}
+@keyframes background-me-page {
+  0% {
+    background-position: top;
+  }
+}
+
+/* Flex background me-page setting */
+.background-me-page .intro {
+  width: 50%;
+}
+.background-me-page .photo {
+  width: 50%;
+}
+
+/* Background Intro  */
+.background-me-page .intro {
+  margin-top: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--rgba-light-blue-1);
+  backdrop-filter: blur(9px);
+  transform: skew(0, 10deg);
+  animation-name: intro-background;
+  animation-duration: 1s;
+  height: 50%;
+}
+.intro h1 {
+  transform: skew(0, -10deg);
+  text-align: center;
+  font-family: pixel;
+}
+.intro p {
+  transform: skew(0, -10deg);
+  text-align: center;
+  font-family: var(--poppins);
+}
+
+/* Intro Animation */
+@keyframes intro-background {
+  0% {
+    transform: translateX(-50vw) skew(0, 0deg);
+  }
+}
+
+/* Background Photo */
+.background-me-page .photo {
+  margin-top: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--rgba-light-purple-2);
+  transform: skew(0, -10deg);
+  animation-name: photo-background;
+  animation-duration: 1s;
+  height: 50%;
+  backdrop-filter: blur(9px);
+}
+.photo h1 {
+  font-family: "pixel";
+  font-size: 3rem;
+  color: white;
+}
+
+/* Photo Anomation */
+@keyframes photo-background {
+  from {
+    transform: translateX(50vw) skew(0, 0deg);
+  }
+}
+
+/* <---Skill Page---->*/
+#skills {
+  height: 100vh;
+}
+.skills-text-1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 12vh;
+}
+.skills-text-2 {
+  display: flex;
+  justify-content: center;
+}
+.container-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.container-skills .card-skills {
+  border-radius: 5%;
+  background-color: grey;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 40vh;
+  width: 30vh;
+  margin: 3vw;
+  transition: all 200ms;
+}
+.icon {
+  background-size: cover;
+}
+.text-skills {
+  text-align: center;
+}
